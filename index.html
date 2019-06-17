@@ -9,17 +9,20 @@
     <title>Schaar steen papier</title>
   </head>
   <body>
-    <button class="mychoice" value="rock">
-      <i class="far fa-hand-rock"></i>
-    </button>
-    <button class="mychoice" value="paper">
-      <i class="far fa-hand-paper"></i>
-    </button>
-    <button class="mychoice" value="scissor">
-      <i class="far fa-hand-scissors"></i>
-    </button>
-    <button id="pc">COMPUTER</button>
-    <button id="reset">RESET</button>
+    <div>
+      <button class="mychoice" id="rock">ROCK</button>
+      <button class="mychoice" id="paper">PAPER</button>
+      <button class="mychoice" id="scissor">SCISSOR</button>
+      <div id="imgMyChoice"></div>
+    </div>
+    <div>
+      <button id="pc">COMPUTER</button>
+      <button id="reset">RESET</button>
+      <div id="imgPcChoice"></div>
+    </div>
+    <div>
+      <h1 id="result"></h1>
+    </div>
   </body>
   <script src="./js/main.js"></script>
 </html>
