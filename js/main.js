@@ -11,13 +11,18 @@ function ready(rps) {
   rps.addEventListener("click", function() {
     myChoice = rps.innerHTML;
     if (myChoice === "ROCK") {
-      imgMe.innerHTML = '<i class="far fa-hand-rock fa-rotate-90"></i>';
+      imgMe.innerHTML =
+        '<i class="far fa-5x fa-hand-rock fa-flip-vertical"></i>';
     } else if (myChoice === "PAPER") {
-      imgMe.innerHTML = '<i class="far fa-hand-paper fa-rotate-90"></i>';
+      imgMe.innerHTML =
+        '<i class="far fa-5x fa-hand-paper fa-flip-vertical"></i>';
     } else {
       imgMe.innerHTML =
-        '<i class="far fa-hand-scissors fa-flip-horizontal"></i>';
+        '<i class="far fa-5x fa-hand-scissors fa-rotate-270"></i>';
     }
+    document.getElementById("rock").style.display = "none";
+    document.getElementById("paper").style.display = "none";
+    document.getElementById("scissor").style.display = "none";
     return myChoice;
   });
 }
@@ -29,15 +34,18 @@ function set() {
   } else {
     let random = Math.floor(Math.random() * 3);
     if (random === 0) {
-      imgPc.innerHTML = '<i class="far fa-hand-rock fa-rotate-270"></i>';
+      imgPc.innerHTML = '<i class="far fa-5x fa-hand-rock"></i>';
       pcChoice = "ROCK";
     } else if (random === 1) {
-      imgPc.innerHTML = '<i class="far fa-hand-paper fa-rotate-270"></i>';
+      imgPc.innerHTML = '<i class="far fa-5x fa-hand-paper"></i>';
       pcChoice = "PAPER";
     } else {
-      imgPc.innerHTML = '<i class="far fa-hand-scissors "></i>';
+      imgPc.innerHTML =
+        '<i class="far fa-5x fa-hand-scissors fa-rotate-90"></i>';
       pcChoice = "SCISSOR";
     }
+    document.getElementById("pc").style.display = "none";
+
     go(pcChoice);
   }
 }
@@ -73,7 +81,11 @@ reset.addEventListener("click", empty);
 function empty() {
   pcChoice = "";
   myChoice = "make a choice";
-  imgMe.innerHTML = "";
-  imgPc.innerHTML = "";
-  result.innerHTML = "";
+  imgMe.innerHTML = '<i class="far fa-5x fa-question-circle"></i>';
+  imgPc.innerHTML = '<i class="far fa-5x fa-question-circle"></i>';
+  result.innerHTML = "Please make a choice";
+  document.getElementById("rock").style.display = "inline";
+  document.getElementById("paper").style.display = "inline";
+  document.getElementById("scissor").style.display = "inline";
+  document.getElementById("pc").style.display = "inline";
 }

@@ -9,19 +9,24 @@
     <title>Schaar steen papier</title>
   </head>
   <body>
-    <div>
-      <button class="mychoice" id="rock">ROCK</button>
-      <button class="mychoice" id="paper">PAPER</button>
-      <button class="mychoice" id="scissor">SCISSOR</button>
-      <div id="imgMyChoice"></div>
-    </div>
-    <div>
-      <button id="pc">COMPUTER</button>
+    <div class="bigbox">
+      <div class="container">
+        <button class="mychoice" id="rock">ROCK</button>
+        <button class="mychoice" id="paper">PAPER</button>
+        <button class="mychoice" id="scissor">SCISSOR</button>
+      </div>
+      <div id="imgMyChoice" class="img">
+        <i class="far fa-5x  fa-question-circle"></i>
+      </div>
+      <h1>VS</h1>
+      <div id="imgPcChoice" class="img">
+        <i class="far fa-5x fa-question-circle"></i>
+      </div>
+      <div class="container">
+        <button id="pc">COMPUTER</button>
+      </div>
+      <h1 id="result">Please make a choice</h1>
       <button id="reset">RESET</button>
-      <div id="imgPcChoice"></div>
-    </div>
-    <div>
-      <h1 id="result"></h1>
     </div>
   </body>
   <script src="./js/main.js"></script>
