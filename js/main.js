@@ -15,33 +15,16 @@ typeChoice.addEventListener("keyup", typeIn);
 function typeIn(event) {
   if (event.key === "Enter") {
     let allCap = typeChoice.value.toUpperCase();
-    console.log(allCap);
-    if (allCap === "ROCK") {
-      imgMe.innerHTML =
-        '<i class="far fa-7x fa-hand-rock fa-flip-vertical"></i>';
-      rock.style.color = "blue";
-      myChoice = "ROCK";
-    } else if (allCap === "PAPER") {
-      imgMe.innerHTML =
-        '<i class="far fa-7x fa-hand-paper fa-flip-vertical"></i>';
-      paper.style.color = "blue";
-      myChoice = "PAPER";
-    } else if (allCap === "SCISSOR") {
-      imgMe.innerHTML =
-        '<i class="far fa-7x fa-hand-scissors fa-rotate-270"></i>';
-      scissor.style.color = "blue";
-      myChoice = "SCISSOR";
-    } else if (allCap === "SPOCK") {
-      imgMe.innerHTML =
-        '<i class="far fa-7x fa-hand-spock fa-flip-horizontal"></i>';
-      myChoice = "SPOCK";
-    } else {
-      result.innerHTML = "Invalid choice";
-    }
-    rock.disabled = true;
-    paper.disabled = true;
-    scissor.disabled = true;
-    typeChoice.disabled = true;
+    allCap === "ROCK"
+      ? chooseRock()
+      : allCap === "PAPER"
+      ? choosePaper()
+      : allCap === "SCISSOR"
+      ? chooseScissor()
+      : allCap === "SPOCK"
+      ? chooseSpock()
+      : (result.innerHTML = "Invalid Choice");
+    disable();
     return myChoice;
   }
 }
@@ -53,27 +36,15 @@ function ready(rps) {
 function choose() {
   myChoice = this.innerHTML;
   if (myChoice === "ROCK") {
-    imgMe.innerHTML = '<i class="far fa-7x fa-hand-rock fa-flip-vertical"></i>';
-    rock.style.color = "blue";
+    chooseRock();
   } else if (myChoice === "PAPER") {
-    imgMe.innerHTML =
-      '<i class="far fa-7x fa-hand-paper fa-flip-vertical"></i>';
-    paper.style.color = "blue";
+    choosePaper();
   } else {
-    imgMe.innerHTML =
-      '<i class="far fa-7x fa-hand-scissors fa-rotate-270"></i>';
-    scissor.style.color = "blue";
+    chooseScissor();
   }
-  rock.disabled = true;
-  paper.disabled = true;
-  scissor.disabled = true;
-  typeChoice.disabled = true;
+  disable();
   return myChoice;
 }
-
-// let iChooseRock() {
-
-// }
 
 pcChoose.addEventListener("click", set);
 function set() {
@@ -100,6 +71,38 @@ function set() {
     go(pcChoice);
   }
 }
+
+let chooseRock = () => {
+  imgMe.innerHTML = '<i class="far fa-7x fa-hand-rock fa-flip-vertical"></i>';
+  rock.style.color = "blue";
+  myChoice = "ROCK";
+};
+
+let choosePaper = () => {
+  imgMe.innerHTML = '<i class="far fa-7x fa-hand-paper fa-flip-vertical"></i>';
+  paper.style.color = "blue";
+  myChoice = "PAPER";
+};
+
+let chooseScissor = () => {
+  imgMe.innerHTML = '<i class="far fa-7x fa-hand-scissors fa-rotate-270"></i>';
+  scissor.style.color = "blue";
+  myChoice = "SCISSOR";
+};
+
+let chooseSpock = () => {
+  imgMe.innerHTML =
+    '<i class="far fa-7x fa-hand-spock fa-flip-horizontal"></i>';
+  myChoice = "SPOCK";
+};
+
+let disable = () => {
+  rock.disabled = true;
+  paper.disabled = true;
+  scissor.disabled = true;
+  typeChoice.disabled = true;
+};
+
 function go() {
   if (myChoice === "ROCK") {
     if (pcChoice === "ROCK") {
